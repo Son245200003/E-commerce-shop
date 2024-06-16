@@ -1,0 +1,77 @@
+<app-header></app-header>
+<div class="container">
+    <div class="intro-section">
+        <h1>Thông tin cá nhân</h1>
+    </div> 
+    <form [formGroup]="userProfileForm"> <!-- Thêm form và gán formGroup -->   
+    <div class="row">
+        <div class="col-md-3 mx-auto text-center">
+                <div class="mb-3">
+                    <label for="fullname" class="form-label">Họ và tên</label>
+                    <input type="text" 
+                        formControlName="fullname" 
+                        class="form-control" 
+                        id="fullname" 
+                        [class.is-invalid]="userProfileForm.get('fullname')!.invalid && userProfileForm.get('fullname')!.touched">
+                    <div 
+                        *ngIf="userProfileForm.get('fullname')!.invalid && userProfileForm.get('fullname')!.touched" 
+                        class="invalid-feedback">
+                        Họ và tên là trường bắt buộc.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Địa chỉ</label>
+                    <input type="text" 
+                        class="form-control" 
+                        formControlName="address"                         
+                        placeholder="Địa chỉ" 
+                        id="address" 
+                        [class.is-invalid]="userProfileForm.get('address')!.invalid && userProfileForm.get('address')!.touched">
+                    <div *ngIf="userProfileForm.get('address')!.invalid && userProfileForm.get('address')!.touched" class="invalid-feedback">
+                        Địa chỉ là trường bắt buộc và ít nhất 5 ký tự.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="date_of_birth" class="form-label">Ngày sinh</label>
+                    <input type="date" 
+                        class="form-control" 
+                        formControlName="date_of_birth"                         
+                        placeholder="Địa chỉ" 
+                        id="date_of_birth" 
+                        [class.is-invalid]="userProfileForm.get('date_of_birth')!.invalid && userProfileForm.get('date_of_birth')!.touched">
+                    <div *ngIf="userProfileForm.get('date_of_birth')!.invalid && userProfileForm.get('date_of_birth')!.touched" class="invalid-feedback">
+                        Địa chỉ là trường bắt buộc và ít nhất 5 ký tự.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mật khẩu</label>
+                    <input type="text" 
+                        class="form-control" 
+                        formControlName="password"                         
+                        placeholder="Địa chỉ" 
+                        id="password" 
+                        [class.is-invalid]="userProfileForm.get('password')!.invalid && userProfileForm.get('password')!.touched">
+                    <div *ngIf="userProfileForm.get('password')!.invalid && userProfileForm.get('password')!.touched" class="invalid-feedback">
+                        Địa chỉ là trường bắt buộc và ít nhất 5 ký tự.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="retypePassword" class="form-label">Điền lại mật khẩu</label>
+                    <input type="text" 
+                        class="form-control" 
+                        formControlName="retypePassword"                         
+                        placeholder="Địa chỉ" 
+                        id="retypePassword" 
+                        [class.is-invalid]="userProfileForm.get('retypePassword')!.invalid && userProfileForm.get('retypePassword')!.touched">
+                    <div *ngIf="userProfileForm.get('retypePassword')!.invalid && userProfileForm.get('retypePassword')!.touched" class="invalid-feedback">
+                        Địa chỉ là trường bắt buộc và ít nhất 5 ký tự.
+                    </div>
+                </div>
+                <button class="btn btn-primary" (click)="save()">Lưu</button>
+            <!-- </form> -->
+        </div>        
+        
+    </div>   
+</form> 
+</div>
+<app-footer></app-footer>

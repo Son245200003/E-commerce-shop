@@ -1,0 +1,50 @@
+@import '../../styles/share-styles.scss';
+header {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(173, 178, 203);
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.navbar .container {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.navbar .container .navbar-brand {
+    color: rgb(173, 178, 203);
+}
+
+.navbar .container .navbar-nav .nav-link {
+    color: rgb(173, 178, 203);
+    border-radius: 18px;
+    padding: 8px 16px;
+}
+
+.navbar .container .navbar-nav .nav-link.active {
+    background-color: $shopapp-color !important;
+    color: white !important;
+}
+.popover-list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .popover-item {
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .popover-item:hover {
+    background-color: #f5f5f5;
+    color: #007bff;
+  }

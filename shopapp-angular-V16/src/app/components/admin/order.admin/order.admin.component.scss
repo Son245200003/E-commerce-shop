@@ -1,0 +1,46 @@
+@import '../../../styles/share-styles.scss';
+.container-fluid{
+    background-color: white;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.header{
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.page-number {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    margin: 0 2px;
+    border-radius: 3px;
+}
+
+.page-number.active {
+    background-color: $shopapp-color;
+    color: #fff;
+    border-color:$shopapp-color;
+}
+.btn-primary{
+    background-color: $shopapp-color;
+    border-color: $shopapp-color;
+}
+.btn.btn-primary{
+    margin-left: 10px;
+}
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    background-color: #ccc;
+    width: 500px;
+    margin-right: 10px;
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+}
