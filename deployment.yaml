@@ -45,7 +45,7 @@ services:
       - shopapp-network
 
   #Nhớ chạy Kafka deployment trước, đảm bảo Broker và Zookeeper chạy ok
-  shopapp-spring-container:    
+  shopapp-spring-container2:    
     container_name: shopapp-spring-container    
     build:
       context: .

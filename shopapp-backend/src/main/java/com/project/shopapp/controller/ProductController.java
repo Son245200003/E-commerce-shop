@@ -96,20 +96,8 @@ public class ProductController {
     }
     @PostMapping()
     public ResponseEntity<?> createProduct(
-            @Valid @RequestBody ProductDTO productDTO,
-            BindingResult result
-//            @ModelAttribute("files") List<MultipartFile> files
+            @Valid @RequestBody ProductDTO productDTO
             ) throws IOException {
-//        xử lý ngoại lệ validate
-        if (result.hasErrors()) {
-            List<String> errorMessage = result.getAllErrors()
-                    .stream()
-                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                    .collect(Collectors.toList());
-
-            return ResponseEntity.badRequest().body(errorMessage);
-        }
-
         Product newProduct=productService.createProduct(productDTO);
         return ResponseEntity.ok(newProduct);
     }

@@ -43,15 +43,8 @@ public class CategoryController {
     }
     @PostMapping()
     public ResponseEntity<?> createCategory(
-            @Valid @RequestBody CategoryDTO categoryDTO,
-            BindingResult result) {
-        if (result.hasErrors()) {
-            List<String> errorMessage = result.getAllErrors()
-                    .stream()
-                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                    .collect(Collectors.toList());
-            return ResponseEntity.badRequest().body(errorMessage);
-        }
+            @Valid @RequestBody CategoryDTO categoryDTO
+            ) {
         Category category=categoryService.creatCategory(categoryDTO);
         this.kafkaTemplate.send("insert-a-category",category);
         this.kafkaTemplate.setMessageConverter(new CategoryMessageConverter());
@@ -60,15 +53,8 @@ public class CategoryController {
     @PutMapping("{id}")
     public ResponseEntity<?> updateCategory(@PathVariable long id
             ,@Valid @RequestBody CategoryDTO categoryDTO
-            ,BindingResult result
             ){
-        if (result.hasErrors()) {
-            List<String> errorMessage = result.getAllErrors()
-                    .stream()
-                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                    .collect(Collectors.toList());
-            return ResponseEntity.badRequest().body(errorMessage);
-        }
+
         categoryService.updateCategory(id,categoryDTO);
         return ResponseEntity.ok(UpdateCategoryResponse.builder()
                 .message(localizationUtils.getLocalizationMessage(MessageKeys.UPDATE_SUCCESSFULLY))

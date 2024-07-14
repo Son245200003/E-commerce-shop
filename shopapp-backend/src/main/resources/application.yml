@@ -21,10 +21,9 @@ spring:
       max-request-size: 10MB
       enabled: true
 #      Flyway
-#  đường dẫn script tới flyway
+
   flyway:
     locations: classpath:/db/migration,classpath:/dev/db/migration
-#    Phiên bản baseline sẽ =1
     baseline-on-migrate: true
     baseline-version: 0
   data:

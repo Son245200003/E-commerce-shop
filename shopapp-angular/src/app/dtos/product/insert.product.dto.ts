@@ -1,11 +1,15 @@
 import {
     IsString, 
     IsNotEmpty, 
-    IsPhoneNumber,     
+    IsPhoneNumber,
+    Min,
+    Max,     
 } from 'class-validator';
 
 export class InsertProductDTO {
     @IsPhoneNumber()
+    @Min(8)
+    @Max(11)
     name: string;
 
     price: number;
@@ -14,6 +18,7 @@ export class InsertProductDTO {
     @IsNotEmpty()
     description: string;
 
+    @Min(1)
     category_id: number;
     images: File[] = [];
     
