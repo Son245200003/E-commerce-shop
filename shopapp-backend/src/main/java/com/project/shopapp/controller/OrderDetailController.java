@@ -28,20 +28,10 @@ public class OrderDetailController {
             BindingResult result
     ) {
 //        xử lý ngoại lệ validate
-        try {
-            if (result.hasErrors()) {
-                List<String> errorMessage = result.getAllErrors()
-                        .stream()
-                        .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                        .collect(Collectors.toList());
 
-                return ResponseEntity.badRequest().body(errorMessage);
-            }
             OrderDetail orderDetail=orderDetailService.createOrderDetail(orderDetailsDTO);
             return ResponseEntity.ok(OrderDetailResponse.fromOrderDetail(orderDetail));
-        }catch (Exception e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+
     }
     @GetMapping("/{id}")
     public ResponseEntity<?> getOrderDetail(@Valid @PathVariable("id") long id){
