@@ -78,12 +78,9 @@ public class ProductController {
     @GetMapping("{idProduct}")
     public ResponseEntity<?> getProductsById(@PathVariable("idProduct") long idProduct){
 //        lấy tổng số trang
-        try {
             Product product=productService.getProductById(idProduct);
             return ResponseEntity.ok(ProductResponse.fromProduct(product));
-        }catch (Exception e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+
     }
     @GetMapping("/imageProduct/{idProduct}")
     public ResponseEntity<?> getImageProduct(@PathVariable("idProduct") long idProduct){
