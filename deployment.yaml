@@ -49,7 +49,7 @@ services:
     container_name: shopapp-spring-container    
     build:
       context: .
-      dockerfile: DockerfileJavaSpring      
+      dockerfile: Dockerfile      
       #docker tag <image_id> shopapp-spring:1.0.0    
     ports:
       - 8099:8088
