@@ -3,15 +3,16 @@ package com.project.shopapp.models;
 import com.project.shopapp.services.ProductRedisService;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class ProductListener {
-    @Autowired
-    private ProductRedisService productRedisService;
+    private final ProductRedisService productRedisService;
     private static final Logger logger = LoggerFactory.getLogger(ProductListener.class);
 
     public ProductListener() {
