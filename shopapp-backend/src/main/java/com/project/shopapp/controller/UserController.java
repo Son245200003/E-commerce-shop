@@ -98,13 +98,7 @@ public class UserController {
     public ResponseEntity<?> login(@Valid @RequestBody UserLoginDTO userLoginDto, BindingResult result
                                    , HttpServletRequest request
                                    ){
-        if (result.hasErrors()) {
-            List<String> errorMessage = result.getAllErrors()
-                    .stream()
-                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                    .collect(Collectors.toList());
-            return ResponseEntity.badRequest().body(errorMessage);
-        }
+
         String token= userService.login(
                 userLoginDto.getPhoneNumber(),
                 userLoginDto.getPassword(),

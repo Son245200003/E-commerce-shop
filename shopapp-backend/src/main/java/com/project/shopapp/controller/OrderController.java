@@ -47,19 +47,11 @@ public class OrderController {
 
     @PostMapping(value = "")
     public ResponseEntity<?> createOrder(
-            @Valid @RequestBody OrderDTO orderDTO,
-            BindingResult result
+            @Valid @RequestBody OrderDTO orderDTO
     ) {
 //        xử lý ngoại lệ validate
         try {
-            if (result.hasErrors()) {
-                List<String> errorMessage = result.getAllErrors()
-                        .stream()
-                        .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                        .collect(Collectors.toList());
 
-                return ResponseEntity.badRequest().body(errorMessage);
-            }
             Order order=orderService.createOrder(orderDTO);
 
            return ResponseEntity.ok(OrderResponse.fromOrder(order));

@@ -1,15 +1,18 @@
 package com.project.shopapp.services.Impl;
 
 import com.project.shopapp.Exception.DataNotFoundException;
+import com.project.shopapp.Exception.InvalidParamException;
 import com.project.shopapp.component.JwtTokenUtils;
 import com.project.shopapp.models.Token;
 import com.project.shopapp.models.User;
 import com.project.shopapp.repository.TokenRepository;
 import com.project.shopapp.services.TokenService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -79,4 +82,7 @@ public class TokenServiceImpl implements TokenService {
         existingToken.setRefreshExpirationDate(LocalDateTime.now().plusSeconds(expirationRefreshToken));
         return existingToken;
     }
+
+
+
 }

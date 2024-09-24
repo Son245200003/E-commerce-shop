@@ -2,6 +2,7 @@ package com.project.shopapp.services;
 
 import com.project.shopapp.models.Token;
 import com.project.shopapp.models.User;
+import jakarta.servlet.http.HttpServletRequest;
 
 public interface TokenService {
     public Token addToken(User user, String token, boolean isMobileDevice);
