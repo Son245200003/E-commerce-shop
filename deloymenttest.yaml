@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  shopapp-spring-container--test2:    
+      container_name: shopapp-spring-container-test-1   
+      image: shopapp-shopapp-spring-container2
+      build:
+        context: .
+        dockerfile: Dockerfile      
+        #docker tag <image_id> shopapp-spring:1.0.0    
+      ports:
+        - 8099:8088
+      networks:
+        - app-test    
+networks:
+  app-test:
+    name: app-test
+    driver: bridge
